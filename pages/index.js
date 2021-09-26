@@ -7,6 +7,11 @@ function Home({ allPostsData }) {
         <a>User List  </a>
       </Link>
       {/* {<UserList/> } */}
+      <Link href="/posts">
+        <a>Post List  </a>
+      </Link>
+      
+
     </div>
   )
 }
