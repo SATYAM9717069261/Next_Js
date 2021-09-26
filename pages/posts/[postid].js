@@ -20,7 +20,8 @@ export async function getStaticProps(context) {
     )
     const data = await res.json();
     return {
-        props: { post: data }
+        props: { post: data },revalidate:10 //after 10 sec again check for Update 
+        /**if any update is occure then Json is also updated But Hard Reload Page is Require */
     }
 }
 
