@@ -1,9 +1,9 @@
 import {useRouter} from "next/router"
 function Post({ post }) {
-    const router =useRouter()
-    if(router.isFallback){
-        return <h1>Loading ...</h1>
-    }
+    // const router =useRouter()
+    // if(router.isFallback){
+    //     return <h1>Loading ...</h1>
+    // }
     return (
         <>
             <h2> {post.id} {post.title}</h2>
@@ -52,12 +52,15 @@ export async function getStaticProps(context) {
 //     }
 // }
 
+/**fallback:'blocking There is no loading Screen on load content
+ * So we Don't need router.isFallback for check is it loading or not
+ */
 export async function getStaticPaths() {
     return {
         paths: [
             { params: { postid: '1' } },
             { params: { postid: '2' } },
             { params: { postid: '3' } }
-        ],fallback:true
+        ],fallback:"blocking"
     }
 }
