@@ -3,13 +3,14 @@ import UserList from "./Users";
 function Home({ allPostsData }) {
   return (
     <div>
-      <Link href="/Users">
-        <a>User List  </a>
-      </Link>
+      <h2> Bloging Site</h2>
+      <div><Link href="/Users">
+        <a> User List  </a>
+      </Link></div>
       {/* {<UserList/> } */}
-      <Link href="/posts">
+     <div> <Link href="/posts">
         <a>Post List  </a>
-      </Link>
+      </Link></div>
       
 
     </div>
