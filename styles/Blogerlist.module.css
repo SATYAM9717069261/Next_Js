@@ -1,0 +1,16 @@
+.blog{
+    height: 34em;
+}
+.flex{
+    flex:1;
+}
+.flex4{
+    flex:4;
+}
+.container{
+    height: 34em;
+}
+.info {
+    flex: 1;
+    margin: 7px;
+}

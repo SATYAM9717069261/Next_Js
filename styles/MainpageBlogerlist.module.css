@@ -1,0 +1,20 @@
+.img {
+    flex: 1;
+    text-align: "center"
+}
+
+.sidemenu {
+    float: right;
+    font-style: normal;
+    font-size: large;
+}
+
+.sidebog {
+    flex: 1;
+    text-align: center;
+}
+
+.changefontheader{
+    font-size: medium;
+    letter-spacing: normal;
+}

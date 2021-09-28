@@ -2,7 +2,7 @@ import Body from "./body";
 function app() {
     return (
         <>
-            <header > This App Created in Next Js </header>
+            <header> This App Created in Next Js </header>
             <div className="flex-row box header">
                 <div className="center font-large-space-3" style={{flex:"auto"}}>Bloging Application</div>
                 <div className="flex-row-rev center" style={{flex:"auto"}}>
