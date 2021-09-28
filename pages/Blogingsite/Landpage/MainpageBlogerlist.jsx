@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Profilepic from '../../../public/images/Profile_pic.jpeg'
-function MainpageBlogerlist(){
+function MainpageBlogerlist(changecontent){
     return (
         <div className="flex-row box blog-container">
                     <div style= {{flex: "1" ,textAlign: "center"}}>
-                        <Image className="pic-img" src={Profilepic} alt="Bloger User Image"/>
+                        {/* <Image className="pic-img" src={Profilepic} alt="Bloger User Image"/> */}
                     </div>
                     <div className="flex-4">
                         <section>
@@ -14,11 +14,9 @@ function MainpageBlogerlist(){
                                 <span>Publish DATE : 15-SEP-2021 </span>
                             </p>
                             <p className="blog-body">A Small River is Not good dumping wast because its too easy to detect
-                                where dumping is
-                                done. A Small River is Not good dumping wast because its too easy to detect where
-                                dumping is
-                                done.</p>
-                            <button className="blog-button"> READ More..</button>
+                                where dumping is done. A Small River is Not good dumping wast because its too easy to detect where
+                                dumping is done.</p>
+                            <button className="blog-button" onClick={changecontent}> READ More..</button>
                         </section>
                     </div>
                 </div>
