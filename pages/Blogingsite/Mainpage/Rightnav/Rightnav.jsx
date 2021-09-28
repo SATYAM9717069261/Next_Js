@@ -1,10 +1,13 @@
 import Link from "next/link";
+import Image from 'next/image'
 import style from '../../../../styles/MainpageBlogerlist.module.css'
+import Postimage from '../../../../public/images/mqdwglmv.bmp'
+
 function Rightnav() {
     return (
         <div className="flex-row box blog-container blog-detail">
             <div className={style.sidebog}>
-                {/* <img class="pic-img" src="mqdwglmv.bmp" alt=""> */}
+                <Image className={style.postimg} src={Postimage} alt="" />
             </div>
             <div className="flex-4">
                 <section>
