@@ -4,7 +4,8 @@ import Rightnav from "./Mainpage/Rightnav/Rightnav";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Customstyle from '../../styles/Blogerlist.module.css'
-function Blogers() {
+function Blogers({ data ,filter }) {
+    console.log("Data +>   da => ", data)
     const [pagecontent, setpagecontent] = useState(true);
     // const containerData = {
     //    Mainpagecontent: <MainpageBlogerlist changecontent={changecontent} />
@@ -15,50 +16,51 @@ function Blogers() {
     //     console.log("Change Detected", containerData.Mainpagecontent)
     // }, [pagecontent]);
 
-    function changecontent() {
+    function selecteduser(id){
         setpagecontent(false);
+        filter(id);
+        console.log("selected blog => ",id)
     }
 
     return (
         <>
             <div className={`left ${Customstyle.flex}`}>
-                <header onClick={changecontent}>BLOGERS</header>
+                <header>BLOGERS</header>
                 <div className={`flex-col center blog ${Customstyle.container}`}>
                     {/* containerData.Mainpagecontent */}
-                    {pagecontent ? <MainpageBlogerlist changecontent={changecontent} /> :<Leftnav />}
+                    {pagecontent ?
+                        data.map((datavalue) => {
+                            return <MainpageBlogerlist key={datavalue.id} data={datavalue} changecontent={selecteduser}  />
+                        })
+                        : data.map((datavalue) => {
+                            return <Leftnav key={datavalue.id} data={datavalue} />
+                        })
+                    }
                 </div>
                 <div className="pagination">
                     <Link href="#"><a>&laquo;</a></Link>
                     <Link href="#"><a className="selected-page">1</a></Link>
                     <Link href="#"><a>2</a></Link>
-                    <Link href="#"><a>3</a></Link>
                     <Link href="#"><a>&raquo;</a></Link>
                 </div>
             </div>
 
             {
-                pagecontent ? "" : (
+                pagecontent ? "" : 
                     <div className={`right ${Customstyle.flex4}`}>
                         <header>User Name <small>/Post Header</small></header>
-                        <div className={`blog ${Customstyle.blog}` }>
-                            <Rightnav />
-                            <Rightnav />
+                        <div className={`blog ${Customstyle.blog}`}>
+                        {data.map((datavalue) => {
+                            return <Rightnav key={datavalue.id} data={datavalue} selected={selecteduser} />
+                        })}
                         </div>
                         <div className="flex-row blog-date">
                             <div className={Customstyle.info}>
-                                <span >Email:abc@gmail.com</span><br/>
+                                <span >Email:abc@gmail.com</span><br />
                                 <span >Contect Number:120-1039-290</span>
                             </div>
-                            <div className="pagination">
-                                <Link href="#"><a>&laquo;</a></Link>
-                                <Link href="#"><a className="selected-page">1</a></Link>
-                                <Link href="#"><a>2</a></Link>
-                                <Link href="#"><a>3</a></Link>
-                                <Link href="#"><a>&raquo;</a></Link>
-                            </div>
-
                         </div>
-                    </div>)
+                    </div>
             }
         </>
     )
