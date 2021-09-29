@@ -15,7 +15,7 @@ function MainpageBlogerlist({changecontent,data}){
                                 <span>Publish DATE : {data.publishdate}</span>
                             </p>
                             <p className="blog-body">{data.body}</p>
-                            {data.readmore?<button className="blog-button" onClick={()=>{changecontent(data.id)}}> READ More..</button>:""}
+                            {data.readmore?<button className="blog-button" onClick={()=>{changecontent(data)}}> READ More..</button>:""}
                         </section>
                     </div>
                 </div>

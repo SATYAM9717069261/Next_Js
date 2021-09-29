@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Customstyle from '../../styles/Blogerlist.module.css'
 function Blogers({ data ,filter }) {
-    console.log("Data +>   da => ", data)
+    const[selectedusername,setseleectedusername]=useState(null);
     const [pagecontent, setpagecontent] = useState(true);
     // const containerData = {
     //    Mainpagecontent: <MainpageBlogerlist changecontent={changecontent} />
@@ -16,12 +16,14 @@ function Blogers({ data ,filter }) {
     //     console.log("Change Detected", containerData.Mainpagecontent)
     // }, [pagecontent]);
 
-    function selecteduser(id){
+    function selecteduser(data){
         setpagecontent(false);
-        filter(id);
-        console.log("selected blog => ",id)
+        filter(data);
+        setseleectedusername(data.publishername);
     }
-
+    function selectpost(data){
+        console.log("Selected post ", data);
+    }
     return (
         <>
             <div className={`left ${Customstyle.flex}`}>
@@ -33,7 +35,7 @@ function Blogers({ data ,filter }) {
                             return <MainpageBlogerlist key={datavalue.id} data={datavalue} changecontent={selecteduser}  />
                         })
                         : data.map((datavalue) => {
-                            return <Leftnav key={datavalue.id} data={datavalue} />
+                            return <Leftnav key={datavalue.id} data={datavalue} selected={selectpost} />
                         })
                     }
                 </div>
@@ -48,10 +50,10 @@ function Blogers({ data ,filter }) {
             {
                 pagecontent ? "" : 
                     <div className={`right ${Customstyle.flex4}`}>
-                        <header>User Name <small>/Post Header</small></header>
+                        <header>{selectedusername}<small>/Post Header</small></header>
                         <div className={`blog ${Customstyle.blog}`}>
                         {data.map((datavalue) => {
-                            return <Rightnav key={datavalue.id} data={datavalue} selected={selecteduser} />
+                            return <Rightnav key={datavalue.id} data={datavalue} />
                         })}
                         </div>
                         <div className="flex-row blog-date">

@@ -14,7 +14,7 @@ function Body({filter}){
     },
     {
         id:2,
-        publishername:"Satyam",
+        publishername:"RAMA NUJAN",
         publishdate:"15-SEP-2021",
         photourl:"../../../public/images/Profile_pic.jpeg",
         title:"TRAVELING IS NOT GOOD IN FOREst",
