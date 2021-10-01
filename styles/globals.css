@@ -7,10 +7,10 @@
 html, body {
   height: 100%;
 }
-
+/* 
 body {
   background-color: var(--background);
-}
+} */
 
 :root {
   --background: #1c202f;
